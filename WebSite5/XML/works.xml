@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<works>
+  <work>
+    <workname>UI</workname>
+    <name>Mikko Kemppinen</name>
+    <date>09.12.2015</date>
+    <hours>4</hours>
+    <minutes>46</minutes>
+  </work>
+  <work>
+    <workname>Classes</workname>
+    <name>Asmo Korkiatupa</name>
+    <date>09.12.2015</date>
+    <hours>4</hours>
+    <minutes>46</minutes>
+  </work>
+  <work>
+    <workname>Database</workname>
+    <name>Arttu Henell</name>
+    <date>09.12.2015</date>
+    <hours>4</hours>
+    <minutes>46</minutes>
+  </work>
+  <work>
+    <name>Asmo Korkiatupa</name>
+    <workname>UI Suunnittelu</workname>
+    <date>30.11.2015</date>
+    <hours>4</hours>
+    <minutes>30</minutes>
+  </work>
+  <work>
+    <name>Asmo Korkiatupa</name>
+    <workname>Testi</workname>
+    <date>12.01.2015</date>
+    <hours>1</hours>
+    <minutes>13</minutes>
+  </work>
+  <work>
+    <name>Asmo Korkiatupa</name>
+    <workname>Kalenteri</workname>
+    <date>9.12.2015</date>
+    <hours>5</hours>
+    <minutes>15</minutes>
+  </work>
+</works>

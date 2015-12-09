@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<users>
+	<user>
+		<name>Mikko Kemppinen</name>
+		<username>Mikko</username>
+		<password>Mikko</password>
+		<hours>8</hours>
+	</user>
+	
+	<user>
+		<name>Asmo Korkiatupa</name>
+		<username>Asmo</username>
+		<password>Asmo</password>
+		<hours>8</hours>
+	</user>
+	
+	<user>
+		<name>Arttu Henell</name>
+		<username>Arttu</username>
+		<password>Arttu</password>
+		<hours>8</hours>
+	</user>
+</users>
