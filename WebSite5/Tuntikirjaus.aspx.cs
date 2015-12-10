@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Web;
@@ -68,7 +69,11 @@ public partial class Tuntikirjaus : System.Web.UI.Page
         String hours = txtHours.Text;
         String minutes = txtMinutes.Text;
 
-        xdoc.Load(Server.MapPath("Xml/works.xml"));
+       // xdoc.Load(Server.MapPath("Xml/works.xml"));
+
+        // ladataan polku webconfigista
+        String worksXml = ConfigurationManager.AppSettings["works"];
+        xdoc.Load(Server.MapPath(worksXml));
 
         XmlElement father = xdoc.CreateElement("work");
         XmlElement nameXml = xdoc.CreateElement("name");

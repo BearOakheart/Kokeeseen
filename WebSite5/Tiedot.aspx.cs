@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Web;
@@ -23,7 +24,11 @@ public partial class Tiedot : System.Web.UI.Page
         dt.Columns.Add("hours", typeof(Int32));
         dt.Columns.Add("minutes", typeof(Int32));
 
-        xdoc.Load(Server.MapPath("Xml/works.xml"));
+      //  xdoc.Load(Server.MapPath("Xml/works.xml"));
+
+        // ladataan polku webconfigista
+        String worksXml = ConfigurationManager.AppSettings["works"];
+        xdoc.Load(Server.MapPath(worksXml));
 
         foreach (XmlNode node in xdoc.DocumentElement)
         {

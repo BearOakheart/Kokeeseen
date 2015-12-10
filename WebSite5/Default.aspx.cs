@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,7 +16,9 @@ public partial class _Default : System.Web.UI.Page
     protected void btnLogin_Click(object sender, EventArgs e)
     {
         XmlDocument xdoc = new XmlDocument();
-        xdoc.Load(Server.MapPath("Xml/users.xml"));
+        // ladataan polku webconfigista
+        String usersXml = ConfigurationManager.AppSettings["users"];
+        xdoc.Load(Server.MapPath(usersXml));
 
         string username = txtLogin.Text;
         string password = txtPassword.Text;

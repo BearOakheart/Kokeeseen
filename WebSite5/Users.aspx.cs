@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Net.Configuration;
@@ -22,7 +23,11 @@ public partial class Users : System.Web.UI.Page
         DataColumn col = new DataColumn();
         dt.Columns.Add("name", typeof(string));
        
-        xdoc.Load(Server.MapPath("Xml/users.xml"));
+      //  xdoc.Load(Server.MapPath("Xml/users.xml"));
+
+        // ladataan polku webconfigista
+        String usersXml = ConfigurationManager.AppSettings["users"];
+        xdoc.Load(Server.MapPath(usersXml));
 
         foreach (XmlNode node in xdoc.DocumentElement)
         {
