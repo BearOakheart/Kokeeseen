@@ -7,35 +7,18 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
 
-public partial class Tunnit : System.Web.UI.Page
+public partial class Tiedot : System.Web.UI.Page
 {
-    DataTable dt = new DataTable();
-    XmlDocument xdoc = new XmlDocument();
-
     protected void Page_Load(object sender, EventArgs e)
     {
-        // Tarkistetaan onko käyttäjä kirjautunut sisään
-        if (Session["name"] != null)
-        {
-            
-            LinkButton1.Text = "Logout";
-        }
-        else
-        {
-            
-            LinkButton1.Text = "Login";
-        }
+        string name = Request.QueryString["name"];
 
-        LoadWorks();
+        XmlDocument xdoc = new XmlDocument();
+        DataTable dt = new DataTable();
 
-
-    }
-
-    private void LoadWorks()
-    {
         DataColumn col = new DataColumn();
-        dt.Columns.Add("name", typeof (string));
-        dt.Columns.Add("workname", typeof (string));
+        dt.Columns.Add("name", typeof(string));
+        dt.Columns.Add("workname", typeof(string));
         dt.Columns.Add("date", typeof(string));
         dt.Columns.Add("hours", typeof(Int32));
         dt.Columns.Add("minutes", typeof(Int32));
@@ -44,20 +27,20 @@ public partial class Tunnit : System.Web.UI.Page
 
         foreach (XmlNode node in xdoc.DocumentElement)
         {
-            string name = node["name"].InnerText;
+             string nameXML = node["name"].InnerText;
+             if (name == nameXML) { 
+           
             string workname = node["workname"].InnerText;
             string date = node["date"].InnerText;
             int hour = Convert.ToInt32(node["hours"].InnerText);
             int minutes = Convert.ToInt32(node["minutes"].InnerText);
 
             dt.Rows.Add(name, workname, date, hour, minutes);
+             }
         }
-       
-      
 
-        GridView1.DataSource = dt;
+        GridView1.DataSource = dt;  
         GridView1.DataBind();
-
 
         object SumTotalHours;
         SumTotalHours = dt.Compute("Sum(hours)", "");
@@ -67,19 +50,19 @@ public partial class Tunnit : System.Web.UI.Page
 
         int tunnit = Convert.ToInt32(SumTotalHours);
         int minuutit = Convert.ToInt32(SumTotalMinutes);
-      
+
 
 
         if (minuutit >= 60)
-        {   
+        {
             //tunnits kokonaistunnit minuuteista
             int tunnits = minuutit/60;
             // tulos on tunnit + kokonaistunnit minuuteista
             int tulos = tunnit + tunnits;
             // minutesj on jakojäännös kun otetaan kokonaistunnit minuutesta
             int minutesj = minuutit%60;
-            Label1.Text = tulos.ToString()+"tuntia";
-            Label2.Text = minutesj.ToString()+"minuuttia";
+            Label1.Text = tulos.ToString() + "tuntia";
+            Label2.Text = minutesj.ToString() + "minuuttia";
 
         }
         else
@@ -87,11 +70,8 @@ public partial class Tunnit : System.Web.UI.Page
             Label1.Text = SumTotalHours.ToString() + "tuntia";
             Label2.Text = SumTotalMinutes.ToString() + "tuntia";
         }
-      
-        
-
-
     }
+
     protected void LinkButton1_Click(object sender, EventArgs e)
     {
         // Käyttäjä kirjautuu sisään

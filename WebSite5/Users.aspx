@@ -1,15 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Tunnit.aspx.cs" Inherits="Tunnit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Users.aspx.cs" Inherits="Users" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Tunnit</title>
+    <title>Käyttäjät</title>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
-       <div id="navigation">
+        <div id="navigation">
                         <ul id="nav">
                             <li><a href="Tunnit.aspx">Työt</a></li>
                             <li><a href="Tuntikirjaus.aspx">Tuntikirjaus</a></li>
@@ -20,14 +20,15 @@
            </div>
 
         </div>
-
-
-        <asp:GridView ID="GridView1" runat="server">
-            
+        <asp:GridView ID="GridView1" runat="server" >
+          <Columns> 
+               <asp:TemplateField>
+        <ItemTemplate>
+                        <asp:LinkButton ID="btnGrid" PostBackUrl='<%# "Tiedot.aspx?name=" + Eval("name")%>' runat="server" Text="More"/>
+                    </ItemTemplate>
+        </asp:TemplateField>
+              </Columns> 
         </asp:GridView>
-        
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
     </div>
     </form>
 </body>

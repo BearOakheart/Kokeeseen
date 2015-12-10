@@ -19,13 +19,15 @@
     <div class="auto-style2">
      <div id="navigation">
                         <ul id="nav">
-                            <li><a href="Tunnit.aspx">Tunnit</a></li>
+                            <li><a href="Tunnit.aspx">Työt</a></li>
                             <li><a href="Tuntikirjaus.aspx">Tuntikirjaus</a></li>
+                            <li><a href="Users.aspx">Käyttäjät</a></li>
                         </ul>
-       <div id="Login">                 
+           <div id="Login">                 
                             <asp:LinkButton ID="LinkButton1" runat="server" ForeColor="Black" OnClick="LinkButton1_Click">LinkButton</asp:LinkButton>
-       </div>
-      </div>
+           </div>
+
+        </div>
         
         <table border="1" width="100%">
             <tr>

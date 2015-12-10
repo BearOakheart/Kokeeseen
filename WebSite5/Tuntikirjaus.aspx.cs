@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -25,7 +26,17 @@ public partial class Tuntikirjaus : System.Web.UI.Page
 
 
         lblName.Text = Session["name"].ToString();
+        String dateNow = DateTime.Now.ToString();
+
+        DateTime datevalue = (Convert.ToDateTime(dateNow.ToString()));
+
+        String dy = datevalue.Day.ToString();
+        String mn = datevalue.Month.ToString();
+        String yy = datevalue.Year.ToString();
+
+        txtDate.Text = dy+"."+mn+"."+yy.ToString();
     }
+    
 
     protected void Selection_Change(Object sender, EventArgs e)
     {
