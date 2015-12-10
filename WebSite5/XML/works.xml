@@ -49,4 +49,11 @@
     <hours>1</hours>
     <minutes>0</minutes>
   </work>
+  <work>
+    <name>Asmo Korkiatupa</name>
+    <workname>Kokeesee</workname>
+    <date>10.12.2015</date>
+    <hours>2</hours>
+    <minutes>30</minutes>
+  </work>
 </works>
